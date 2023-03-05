@@ -1,16 +1,12 @@
 package ru.vsu.cs.javaweb.entity;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -20,10 +16,18 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    public Account(Integer sum, Contract contract) {
+        this.sum = sum;
+        this.contract = contract;
+    }
+
+    public Account() {
+    }
+
     @NotNull
     private Integer sum;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "contract_id")
     private Contract contract;
 

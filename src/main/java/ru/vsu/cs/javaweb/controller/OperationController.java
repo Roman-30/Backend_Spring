@@ -16,6 +16,7 @@ public class OperationController {
 
     @PostMapping("/operation/new")
     public void addNewOperation(@RequestBody OperationDto operation) {
+        System.out.println(operation);
         service.saveNew(operation);
     }
 

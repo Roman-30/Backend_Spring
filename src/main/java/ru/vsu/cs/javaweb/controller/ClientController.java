@@ -26,7 +26,6 @@ public class ClientController {
     public void updateClient(@PathVariable Integer id, @RequestBody ClientDto clientDto) {
         service.updateClient(id, clientDto);
     }
-
     @DeleteMapping("/client/delete/{id}")
     public void deleteClient(@PathVariable Integer id) {
         service.deleteClient(id);

@@ -1,16 +1,13 @@
 package ru.vsu.cs.javaweb.entity;
 
 import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Setter
 @Getter
 @Entity
@@ -19,6 +16,14 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    public Contract(Client client, Manager manager) {
+        this.client = client;
+        this.manager = manager;
+    }
+
+    public Contract() {
+    }
 
     @NotNull
     @ManyToOne
